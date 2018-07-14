@@ -18,7 +18,7 @@ import com.test.app.data.User;
 import com.test.app.service.Threader;
 
 @RestController
-@RequestMapping("/test/*")
+@RequestMapping("/*")
 public class IndexController {
 
 	private static final Logger logger = Logger.getLogger(IndexController.class.getName());
@@ -28,7 +28,6 @@ public class IndexController {
 
 	@RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, method = RequestMethod.GET, consumes = MediaType.ALL_VALUE)
 	public ResponseEntity<User> index() throws InterruptedException {
-		masterThreader.startMainThread();
 		logger.info("index controller");
 		User user = new User();
 		user.setAge(10);
@@ -46,6 +45,8 @@ public class IndexController {
 
 	@PostMapping(path = "post", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody User posttest(@RequestBody User user) {
+		logger.info("run the concurrency");
+		masterThreader.startMainThread();
 		return user;
 	}
 
