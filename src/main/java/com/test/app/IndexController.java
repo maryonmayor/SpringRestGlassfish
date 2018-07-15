@@ -1,5 +1,6 @@
 package com.test.app;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.test.app.data.User;
+import com.test.app.service.IUserDao;
 import com.test.app.service.Threader;
 
 @RestController
@@ -25,18 +27,23 @@ public class IndexController {
 	
 	@Autowired
 	Threader masterThreader;
+	
+	@Autowired
+	IUserDao iUserDao;
 
 	@RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, method = RequestMethod.GET, consumes = MediaType.ALL_VALUE)
-	public ResponseEntity<User> index() throws InterruptedException {
+	public ResponseEntity<List<User>> index() throws InterruptedException {
 		logger.info("index controller");
 		User user = new User();
 		user.setAge(10);
 		user.setName("angelica");
-		return new ResponseEntity<User>(user, HttpStatus.OK);
+		List<User> users = iUserDao.getAll();
+		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
 
 	@GetMapping(path = "mapping")
 	public @ResponseBody User testMapping() {
+		logger.info("mapping method");
 		User user = new User();
 		user.setAge(30);
 		user.setName("maryon");

@@ -37,20 +37,37 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.databind-version}</version>
 		</dependency>
-		<!--  hibernate -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
+		<!-- hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjtools</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+
+
+
 
 	</dependencies>
 	<properties>
+		<h2.version>1.4.197</h2.version>
+		<aspectj.version>1.7.0</aspectj.version>
 		<spring.version>5.0.7.RELEASE</spring.version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
 		<jackson.databind-version>2.9.6</jackson.databind-version>
