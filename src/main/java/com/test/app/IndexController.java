@@ -1,5 +1,6 @@
 package com.test.app;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.test.app.data.User;
+import com.test.app.data.Users;
 import com.test.app.service.IUserDao;
 import com.test.app.service.Threader;
 
@@ -32,13 +34,10 @@ public class IndexController {
 	IUserDao iUserDao;
 
 	@RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, method = RequestMethod.GET, consumes = MediaType.ALL_VALUE)
-	public ResponseEntity<List<User>> index() throws InterruptedException {
-		logger.info("index controller");
-		User user = new User();
-		user.setAge(10);
-		user.setName("angelica");
-		List<User> users = iUserDao.getAll();
-		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+	public ResponseEntity<Users> index() throws InterruptedException {
+		logger.info("index controller*****************************************");
+		Users users = iUserDao.getAll();
+		return new ResponseEntity<Users>(users, HttpStatus.OK);
 	}
 
 	@GetMapping(path = "mapping")

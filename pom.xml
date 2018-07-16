@@ -31,6 +31,11 @@
 			<artifactId>spring-tx</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 		<!-- Jackson -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -43,25 +48,20 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-<!-- 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>${h2.version}</version>
-		</dependency> -->
+		<!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.1-901-1.jdbc4</version>
+		</dependency>
+		<!-- <dependency> <groupId>com.h2database</groupId> <artifactId>h2</artifactId> 
+			<version>${h2.version}</version> </dependency> -->
 
-		<!-- aop
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>${aspectj.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjtools</artifactId>
-			<version>${aspectj.version}</version>
-		</dependency>
-		 -->
-		 
+		<!-- aop <dependency> <groupId>org.aspectj</groupId> <artifactId>aspectjweaver</artifactId> 
+			<version>${aspectj.version}</version> </dependency> <dependency> <groupId>org.aspectj</groupId> 
+			<artifactId>aspectjtools</artifactId> <version>${aspectj.version}</version> 
+			</dependency> -->
+
 
 
 		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->

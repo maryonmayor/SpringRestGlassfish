@@ -2,28 +2,32 @@ package com.test.app.service;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.test.app.data.User;
+import com.test.app.data.Users;
 @Repository
 public class UserDaoRepository implements IUserDao {
 	
-	@PersistenceContext
-	EntityManager entityManager;
+	@Autowired
+	SessionFactory sessionFactory;
 	
-
 	public User get(User user) {
 	return null;
 	}
 
-	@SuppressWarnings("unchecked")
-	public List<User> getAll() {
-		Query users = entityManager.createQuery("Select u from Users");
-		return (List<User>) users.getResultList();
+	public Users getAll() {
+		Users users = new Users();
+		
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		users.setUsers((List<User>) session.createQuery("from Users").list());
+		session.getTransaction().commit();
+		return users;
+		
 	}
 
 	public void add(User user) {
