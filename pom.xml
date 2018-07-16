@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.maryon</groupId>
-	<artifactId>TestRestGF</artifactId>
+	<artifactId>SpringRestGlassfish</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>TestRestGF Maven Webapp</name>
+	<name>SpringRestGlassfish Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
@@ -43,13 +43,13 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>${h2.version}</version>
-		</dependency>
+		</dependency> -->
 
-
+		<!-- aop
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
@@ -60,19 +60,27 @@
 			<artifactId>aspectjtools</artifactId>
 			<version>${aspectj.version}</version>
 		</dependency>
+		 -->
+		 
 
 
+		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
 
 
 	</dependencies>
 	<properties>
 		<h2.version>1.4.197</h2.version>
 		<aspectj.version>1.7.0</aspectj.version>
-		<spring.version>5.0.7.RELEASE</spring.version>
+		<spring.version>4.3.9.RELEASE</spring.version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
 		<jackson.databind-version>2.9.6</jackson.databind-version>
 	</properties>
 	<build>
-		<finalName>TestRestGF</finalName>
+		<finalName>SpringRestGlassfish</finalName>
 	</build>
 </project>
