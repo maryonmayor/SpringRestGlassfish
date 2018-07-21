@@ -36,6 +36,11 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 		<!-- Jackson -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -57,12 +62,16 @@
 		<!-- <dependency> <groupId>com.h2database</groupId> <artifactId>h2</artifactId> 
 			<version>${h2.version}</version> </dependency> -->
 
-		<!-- aop <dependency> <groupId>org.aspectj</groupId> <artifactId>aspectjweaver</artifactId> 
-			<version>${aspectj.version}</version> </dependency> <dependency> <groupId>org.aspectj</groupId> 
-			<artifactId>aspectjtools</artifactId> <version>${aspectj.version}</version> 
-			</dependency> -->
-
-
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjtools</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
 		<dependency>
@@ -82,5 +91,21 @@
 	</properties>
 	<build>
 		<finalName>SpringRestGlassfish</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+				<version>3.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.glassfish</groupId>
+				<artifactId>maven-embedded-glassfish-plugin</artifactId>
+				<version>3.1.1</version>
+			</plugin>
+		</plugins>
 	</build>
 </project>
