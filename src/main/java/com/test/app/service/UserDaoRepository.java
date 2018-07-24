@@ -9,26 +9,36 @@ import org.springframework.stereotype.Repository;
 
 import com.test.app.data.User;
 import com.test.app.data.Users;
+
 @Repository
 public class UserDaoRepository implements IUserDao {
-	
+
 	@Autowired
 	SessionFactory sessionFactory;
-	
+
 	public User get(User user) {
-	return null;
+		return null;
 	}
 
 	public Users getAll() {
 		Users users = new Users();
-		
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		users.setUsers((List<User>) session.createQuery("from Users").list());
 		session.getTransaction().commit();
 		return users;
-		
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<User> listOfUsers() {
+		List<User> users = null;
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		users = (List<User>) session.createQuery("from Users").list();
+		session.getTransaction().commit();
+		return users;
+	}
+
 
 	public void add(User user) {
 		// TODO Auto-generated method stub
@@ -42,7 +52,7 @@ public class UserDaoRepository implements IUserDao {
 
 	public void delete(User user) {
 		// TODO Auto-generated method stub
-
 	}
+
 
 }

@@ -1,22 +1,17 @@
-package com.test.app;
+package com.test.app.controller;
 
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.test.app.data.User;
-import com.test.app.data.Users;
-import com.test.app.service.IUserDao;
 import com.test.app.service.Threader;
 
 @RestController
@@ -24,19 +19,9 @@ import com.test.app.service.Threader;
 public class IndexController {
 
 	private static final Logger logger = Logger.getLogger(IndexController.class.getName());
-	
+
 	@Autowired
 	Threader masterThreader;
-	
-	@Autowired
-	IUserDao iUserDao;
-
-	@RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, method = RequestMethod.GET, consumes = MediaType.ALL_VALUE)
-	public ResponseEntity<Users> index() throws InterruptedException {
-		logger.info("index controller*****************************************");
-		Users users = iUserDao.getAll();
-		return new ResponseEntity<Users>(users, HttpStatus.OK);
-	}
 
 	@GetMapping(path = "mapping")
 	public @ResponseBody User testMapping() {
@@ -54,5 +39,4 @@ public class IndexController {
 		return user;
 	}
 
-	
 }

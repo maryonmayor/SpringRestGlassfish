@@ -18,8 +18,6 @@
 	
 	<aop:aspectj-autoproxy />
 	
-	<bean id="aspectLog" class="com.test.app.LogAspect"></bean>
-
 	<mvc:annotation-driven />
 
 	<!-- Configure to plugin JSON as request and response in method handler -->

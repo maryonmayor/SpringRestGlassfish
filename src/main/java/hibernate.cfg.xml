@@ -24,7 +24,8 @@
     	<property name="hbm2ddl.import_files">initial_data_postgres.sql</property>
 
 		<mapping class="com.test.app.data.User" />
-
+		<mapping class="com.test.app.data.ThreadSetting" />
+ 
 
 
 	</session-factory>
